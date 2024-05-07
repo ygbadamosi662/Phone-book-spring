@@ -8,6 +8,7 @@ import com.example.demo.Repos.UserRepo;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
 import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.Pattern;
 import jakarta.validation.constraints.Size;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
@@ -31,7 +32,10 @@ public class UserProfileDto
     @Size(min = 8,max = 15)
     private String password;
 
-    @Size(min = 8,max = 15)
+    @Pattern(regexp = "^(?=.*[A-Z])(?=.*[a-z])(?=.*\\d)(?=.*[@#$%^&+=!])(?!.*\\s).{8,}$",
+            message = "Password must be atleast 8 characters long and contain " +
+                    "at least one uppercase letter, one lowercase letter, " +
+                    "one digit, and one special character.")
     private String new_password;
 
     @Enumerated(EnumType.STRING)
@@ -40,8 +44,8 @@ public class UserProfileDto
     @Enumerated(EnumType.STRING)
     private Status status = Status.ACTIVE;
 
-    @Size(min=11)
-    @Email(message = "Must follow this pattern 'dfshghf@hdfgf.com'")
+    @Email(message = "Enter a valid email, eg: example6_@gmail.com",
+            regexp = "[a-z]{2,30}@[a-z]{2,10}\\.[a-z]{2,10}")
     private String email;
 
     @Size(min=10,max=10)

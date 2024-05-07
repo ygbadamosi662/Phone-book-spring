@@ -30,8 +30,8 @@ public class UsersDto
     @Enumerated(EnumType.STRING)
     private Status status;
 
-    @Size(min=11)
-    @Email(message = "Must follow this pattern 'dfshghf@hdfgf.com'")
+    @Email(message = "Enter a valid email, eg: example6_@gmail.com",
+            regexp = "[a-z]{2,30}@[a-z]{2,10}\\.[a-z]{2,10}")
     private String email;
 
     @Size(min=10,max=10)

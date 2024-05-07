@@ -33,8 +33,8 @@ public class ContactDto
     @Enumerated(EnumType.STRING)
     private Relationship relation = Relationship.OTHER;
 
-    @Size(min=11)
-    @Email(message = "Must follow this pattern 'dfshghf@hdfgf.com'")
+    @Email(message = "Enter a valid email, eg: example6_@gmail.com",
+            regexp = "[a-z]{2,30}@[a-z]{2,10}\\.[a-z]{2,10}")
     private String email;
 
     @NotNull
