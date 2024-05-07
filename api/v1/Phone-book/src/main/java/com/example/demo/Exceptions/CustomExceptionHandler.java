@@ -34,14 +34,4 @@ public class CustomExceptionHandler
         return new ResponseEntity<>(res, HttpStatus.BAD_REQUEST);
     }
 
-//    @ExceptionHandler(value = UnexpectedTypeException.class)
-//    public ResponseEntity<?> UnexpectedTypeExceptionFunction(UnexpectedTypeException e)
-//    {
-//        Map<String,Object> res = new HashMap<>();
-//        res.put("error","Validation Error");
-//        res.put("ResponseStatus","400");
-//        res.put("message",e.getMessage());
-//
-//        return new ResponseEntity<>(res, HttpStatus.BAD_REQUEST);
-//    }
 }
